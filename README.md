@@ -2,5 +2,4 @@
 learnGit des
 push远程的时候，如果输入username和password
 username:312179361
-password就是下面的personToken，这个是gitHub生成的
-personToken:167b3bac498d710ac788b43b0255bff0882d672f
+password:登录密码
