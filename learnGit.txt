@@ -1,0 +1,64 @@
+origin 代表就是远程库
+master  主分支
+HEAD  指向当前的分支
+
+
+------------------------------------------------
+# 从远程库 克隆 到本地库
+git clone xxx (xxx就是克隆的路径，如https://github.com/312179361/learn_git.git)
+
+# 先本地建库，然后对接到远程
+#1、将本地的文件夹变成git本地库，进入到相应的目录后
+git init
+
+#2、在有了远程库后，就可以将远程库和本地库关联了
+git remote add origin xxx (xxx就是克隆的路径，如https://github.com/312179361/learn_git.git)
+-------------------------------------------------
+进入相应的本地仓库路径
+# 1、将文件添加到本地仓库
+git add 文件名
+
+# 2、将文件提交到仓库。-m后面是本次提交的说明
+git commit -m '提交说明'
+
+**为什么Git添加文件需要add，commit一共两步呢？因为可以多次执行add将多个文件添加，然后commit一次提交很多文件。
+
+#3、把本地的master分支推送至远程(origin)分支master上，这样本地和远程就一样了。第一次推送到远程，需要用-u，以后就不用了
+git push -u origin master
+
+# 4、从远程拉取最新的
+git pull
+
+--------------------------------------------------
+# 创建一个dev分支，并切换
+git checkout -b dev  或
+git switch -c dev
+
+# 创建一个dev分支
+git branch dev
+# 切换到dev分支
+git checkout dev 或
+git switch master
+
+#在本地创建和远程分支对应的分支，
+git checkout -b dev1 origin/dev2  (dev1是本地分支名，dev2是远程的分支名，一般这两个名称最好一样)
+
+#建立本地分支和远程分支的关联，
+git branch --set-upstream-to=origin/dev2 dev1 (dev1是本地分支名，dev2是远程的分支名)
+
+# 查看本地分支
+git branch
+# 查看本地和远程分支
+git branch -a
+
+# 合并分支,将制定分支合并到当前分支
+git merge dev # 即将dev分支合并到当前分支
+
+# 删除本地dev分支
+git branch -d dev
+
+# 删除远程分支
+git push origin --delete dev1 (dev1是远程分支名)
+
+
+
